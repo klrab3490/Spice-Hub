@@ -1,7 +1,19 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { Loader } from "lucide-react";
+import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 
 export default function Login() {
+  const { data: session } = useSession();
+  if (session) redirect("/");
+
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="flex justify-center h-screen px-10 py-5 md:px-36">
       <div className="flex w-full justify-center h-[500px] border-green-200 border rounded-md">
@@ -31,25 +43,35 @@ export default function Login() {
                   Privacy Policy
                 </a>
               </p>
-              <Button className="w-full flex gap-3 h-10">
-                <Image
-                  src="/google.svg"
-                  alt="Google Logo"
-                  width={100}
-                  height={100}
-                  className="w-8"
-                />
+              <Button
+                className="w-full flex gap-3 h-10"
+                onClick={() => {
+                  setLoading(true);
+                  signIn("google", { callbackUrl: "/" });
+                }}
+              >
+                {loading ? (
+                  <Loader className="animate-spin" />
+                ) : (
+                  <Image
+                    src="/google.svg"
+                    alt="Google Logo"
+                    width={100}
+                    height={100}
+                    className="w-8"
+                  />
+                )}
                 <p>Sign in with Google</p>
               </Button>
             </div>
           </div>
           <div>
-            <a
+            <Link
               className="text-sm text-green-400 font-medium"
-              href="#"
+              href="/signup"
             >
               New to SpiceHub? Create an account
-            </a>
+            </Link>
           </div>
         </div>
       </div>
