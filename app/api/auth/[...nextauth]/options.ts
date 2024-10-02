@@ -13,6 +13,14 @@ export const authOptions: NextAuthOptions = {
     }),
     // ...add more providers here
   ],
+  callbacks: {
+    session({ session, user }) {
+      if (session?.user) {
+        session.user.id = user.id;
+      }
+      return session; // The return type will match the one returned in `useSession()`
+    },
+  },
 };
 
 export default authOptions;
