@@ -40,7 +40,7 @@ export default function NavLoginButton() {
               passHref
             >
               {/* <NavigationMenuLink className={navigationMenuTriggerStyle()}> */}
-              <NavigationMenuTrigger>
+              <NavigationMenuTrigger className="mb-0">
                 <CircleUserRound />
                 <p className="text-[16px] pl-1">
                   {session ? "Account" : "Login"}
