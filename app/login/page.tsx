@@ -15,8 +15,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="flex justify-center h-screen px-10 py-5 md:px-36">
-      <div className="flex w-full justify-center h-[500px] border-green-200 border rounded-md">
+    <div className="flex justify-center h-screen px-10 py-5 md:px-36 items-center">
+      <div className="flex w-full justify-center h-[500px] border-green-600 border-2 rounded-md">
         <div className="hidden w-1/3 bg-green-500 h-full p-10 pr-5 md:flex flex-col gap-5">
           <p className="font-medium text-3xl">Login</p>
           <p className="text-lg">
@@ -44,7 +44,7 @@ export default function Login() {
                 </a>
               </p>
               <Button
-                className="w-full flex gap-3 h-10"
+                className="w-full flex gap-3 py-2 h-fit"
                 onClick={() => {
                   setLoading(true);
                   signIn("google", { callbackUrl: "/" });
