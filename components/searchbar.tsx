@@ -12,13 +12,13 @@ export default function SearchBar() {
   return (
     <form
       onSubmit={handleSearch}
-      className="flex items-center border border-gray-300 rounded-md p-2 shadow-sm"
+      className="flex items-center border border-gray-300 dark:border-gray-700 rounded-md p-2 shadow-sm"
     >
       <Search className="text-gray-500 w-5 h-5" />
       <input
         type="text"
         placeholder="Search..."
-        className="ml-2 outline-none flex-grow p-1"
+        className="ml-2 outline-none flex-grow p-1 dark:bg-black dark:text-white"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

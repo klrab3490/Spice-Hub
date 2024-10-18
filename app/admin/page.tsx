@@ -2,8 +2,10 @@ import UploadBtn from "@/components/uploadbutton";
 
 export default function Admin() {
   return (
-    <div>
-      <UploadBtn />
+    <div className="py-20">
+      <div>
+        <UploadBtn />
+      </div>
     </div>
   );
 }
