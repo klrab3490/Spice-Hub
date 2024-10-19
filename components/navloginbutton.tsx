@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import {
   CircleUserRound,
+  Loader,
   LogIn,
   LogOut,
   ShoppingCart,
@@ -27,7 +28,7 @@ export default function NavLoginButton() {
   }, []);
 
   if (!isMounted) {
-    return null;
+    return <Loader className="animate-spin" />;
   }
 
   return (
